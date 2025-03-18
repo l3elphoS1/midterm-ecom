@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind ผ่าน CDN</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<!-- 
+<nav class="bg-gradient-to-r from-rose-500 to-blue-300 text-2xl shadow-md sticky top-0 w-fill z-50 font-semibold
+">
+    <div class="container mx-auto px-2 py-1 flex justify-between items-center">
+    <a href ="#" class="text-2xl font-bold text-white ">Aqua Shop</a>
+
+    <ul class="hidden md:flex space-x-6">
+        <li><a href="./index.html" class="hover:text-white">Homepage</a> </li>
+        <li><a href="./product.html" class="hover:text-white">สินค้า</a> </li>
+        <li><a href="./cart.html" class="hover:text-white">🛒ตะกร้า</a> </li>
+        <li><a href="./pay.html" class="hover:text-white">ชำระเงิน</a> </li>
+    </ul>
+
+   
+</div>
+</nav> -->
+
+
+<body>
+    <div class="navbar text-2xl bg-gradient-to-r from-rose-500 to-blue-300 
+    shadow-md">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgfbtCRv3Jy8YURtJgKUbA0O8mH3Y-NRYdig&s" alt="Site Logo" class="w-15 h-15 rounded-lg ">
+        <div class="flex-1">
+            
+
+            <a class="btn btn-ghost text-xl">Aqua Shop</a>
+        </div>
+        <div class="flex-none ">
+            <ul class="menu menu-horizontal px-1 text-xl">
+                <li><a href="./index.html">🏠 Homepage</a></li>
+                <li><a href="./product.html">🛍️ สินค้า</a></li>
+                <li><a href="./cart.html">🛒 ตะกร้า</a></li>
+                <li><a href="./pay.html">💳 ชำระเงิน</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-body text-2xl items-center justify-center font-bold p-2">สินค้าขายดี</div>
+<div class="carousel">
+  <div id="item1" class="carousel-item relative w-full rounded-lg flex justify-center">
+    <img 
+      src="https://styles.redditmedia.com/t5_82fddg/styles/image_widget_6wkt1tdgq34c1.jpg?format=pjpg&s=b1e6638404ddedb5a812fe7c1a2dd08efa234077"
+      class="w-11/12 h-auto object-cover rounded-lg" />
+  </div>
+  <div id="item2" class="carousel-item relative w-full rounded-lg flex justify-center">
+    <img
+      src="https://preview.redd.it/genshins-masquerade-of-the-guilty-official-wallpapers-v0-18k4xsusjt2c1.jpg?width=1920&format=pjpg&auto=webp&s=3804faff879e4e118d4dbc3db60b520e0f117ca7"
+      class="w-11/12 h-auto object-cover rounded-lg" />
+  </div>
+  <div id="item3" class="carousel-item relative w-full rounded-lg flex justify-center">
+    <img
+      src="https://r4.wallpaperflare.com/wallpaper/242/657/280/furina-genshin-impact-genshin-impact-video-game-characters-hd-wallpaper-f94676b606b3ba376facaf12ef8681f0.jpg"
+      class="w-11/12 h-auto object-cover rounded-lg" />
+  </div>
+  <div id="item4" class="carousel-item relative w-full rounded-lg flex justify-center">
+    <img
+      src="https://r4.wallpaperflare.com/wallpaper/103/339/597/furina-genshin-impact-genshin-impact-pixiv-hd-wallpaper-d866bdb830905cb820ecf15e3882248a.jpg"
+      class="w-11/12 h-auto object-cover rounded-lg" />
+  </div>
+</div>
+<div class="flex w-full justify-center gap-2 py-2">
+  <a href="#item1" class="btn btn-xs">1</a>
+  <a href="#item2" class="btn btn-xs">2</a>
+  <a href="#item3" class="btn btn-xs">3</a>
+  <a href="#item4" class="btn btn-xs">4</a>
+</div>
+
+    
+
+<h1 class="text-3xl font-bold text-red-300 flex justify-center items-center">Promotion </h1>
+
+<img class="m-3" src="https://cf.shopee.co.th/file/th-11134258-7rasl-m2rm6cx8x4jw07">
+<div class="flex items-center justify-center">
+<div class="card w-80 bg-base-200 gap-2 py-2 gap-4 items-center justify-center">
+    <div class="card-body gap-3">
+        <form id="emailForm" class="space-y-4">
+          <!-- Email input field -->
+          <input placeholder="Email" id="emailInput" class="input w-full" required />
+          
+          <!-- Newsletter checkbox -->
+          <label class="label flex items-center gap-2">
+            <input type="checkbox" class="toggle toggle-sm" />
+            Submit to newsletter
+          </label>
+          
+          <!-- Terms of use checkbox -->
+          <label class="label flex items-center gap-2">
+            <input type="checkbox" class="toggle toggle-sm" />
+            Accept terms of use
+          </label>
+          
+          <!-- Save button -->
+          <div class="flex justify-center mt-4">
+            <button id="submit" class="btn btn-neutral p-3 w-auto">Save</button>
+          </div>
+        </form>
+      </div>
+    
+  </div>
+</div>
+<script src="script.js">
+    
+</script>
+</body>
+<footer class="flex justify-center items-center text-2xl  max-w-full h-full">© 2025 Attapong.All right Reserved</footer>
+</html>

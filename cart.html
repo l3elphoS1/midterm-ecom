@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Aqua Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="navbar text-2xl bg-gradient-to-r from-rose-500 to-blue-300 shadow-md">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgfbtCRv3Jy8YURtJgKUbA0O8mH3Y-NRYdig&s" alt="Site Logo" class="w-15 h-15 rounded-lg ">
+        <div class="flex-1">
+            <a class="btn btn-ghost text-xl" href="./index.html">Aqua Shop</a>
+        </div>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1 text-xl">
+                <li><a href="./index.html">🏠 Homepage</a></li>
+                <li><a href="./product.html">🛍️ สินค้า</a></li>
+                <li><a href="./cart.html">🛒 ตะกร้า</a></li>
+                <li><a href="./pay.html">💳 ชำระเงิน</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="max-w-screen-xl mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold mb-6">Your Shopping Cart</h1>
+        
+        <!-- Cart items will be displayed here -->
+        <div id="cart-items" class="space-y-4">
+            <!-- JavaScript will populate this section -->
+        </div>
+    </div>
+
+    <footer class="flex justify-center items-center text-2xl max-w-full h-full mt-8 py-4">
+        © 2025 Attapong. All rights Reserved
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
