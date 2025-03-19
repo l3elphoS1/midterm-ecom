@@ -6,9 +6,11 @@ function searchProduct() {
 
     products.forEach(product => {
         let productnameElement = product.querySelector('[data-name]');
+        let productTypeElement = product.querySelector('[data-type]');
         if (productnameElement) {
             let productName = productnameElement.getAttribute('data-name').toLowerCase();
-            if (productName.includes(query)){
+            let productType = productTypeElement.getAttribute('data-type').toLowerCase();
+            if (productName.includes(query) || (productType.includes(query))) {
                 product.style.display = 'block'
             }else{
             product.style.display = 'none';
