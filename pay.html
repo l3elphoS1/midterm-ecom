@@ -3,19 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tailwind ผ่าน CDN</title>
+        <title>Payment - Aqua Shop</title>
         <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
 
 <body>
-    <div class="navbar text-2xl bg-gradient-to-r from-rose-500 to-blue-300 
-    shadow-md">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgfbtCRv3Jy8YURtJgKUbA0O8mH3Y-NRYdig&s" alt="Site Logo" class="w-15 h-15 rounded-lg ">
+    <div class="navbar text-2xl bg-gradient-to-r from-rose-500 to-blue-300 shadow-md">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgfbtCRv3Jy8YURtJgKUbA0O8mH3Y-NRYdig&s" alt="Site Logo" class="w-15 h-15 rounded-lg">
         <div class="flex-1">
-            <a class="btn btn-ghost text-xl">Aqua Shop</a>
+            <a class="btn btn-ghost text-xl" href="./index.html">Aqua Shop</a>
         </div>
-        <div class="flex-none ">
+        <div class="flex-none">
             <ul class="menu menu-horizontal px-1 text-xl">
                 <li><a href="./index.html" class="hover:text-white">🏠 Homepage</a></li>
                 <li><a href="./product.html" class="hover:text-white">🛍️ สินค้า</a></li>
@@ -25,62 +24,104 @@
         </div>
     </div>
 
-<div class="container ">
-    <div>
-
-
-        <div class="card-body">
-            <h2 class="card-title">ชำระเงิน</h2>
-            <div class="form-control">
-                <div class="flex space-x-4 mb-4">
-                    <label class="flex items-center">
-                      <input type="radio" name="option" value="option1" class="mr-2">
-                      🏦โอนเงินผ่านบัญชีธนาคาร
-                    </label>
-                    <label class="flex items-center">
-                      <input type="radio" name="option" value="option2" class="mr-2">
-                        💳บัตรเครดิต
-                    </label>
-                    <label class="flex items-center">
-                      <input type="radio" name="option" value="option3" class="mr-2">
-                        💵ชำระเงินปลายทาง
-                    </label>
-                    <label class="flex items-center">
-                      <input type="radio" name="option" value="option4" class="mr-2">
-                        📱Paypal
-                  </div>
-                  
-                <label class="label">
-                    <span class="label-text">ชื่อ-นามสกุล</span>
-                </label>
-                <input type="text" placeholder="ชื่อ-นามสกุล" class="input input-bordered" required>
-
+    <div class="max-w-screen-xl mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold mb-6 text-center">ชำระเงิน</h1>
+        
+        <!-- Order Summary Container -->
+        <div id="order-summary-container" class="mb-8">
+            <!-- JavaScript will populate this section -->
+        </div>
+        
+        <!-- Payment Methods -->
+        <div class="max-w-md mx-auto">
+            <h2 class="text-2xl font-bold mb-4">วิธีการชำระเงิน</h2>
+            <div class="bg-white shadow-lg rounded-lg p-6">
+                <img class="w-full rounded-lg mb-4" src="https://cf.shopee.co.th/file/th-11134258-7rasl-m2rm6cx8x4jw07" alt="Payment Methods">
+                
+                <!-- Payment Form -->
+                <form id="payment-form" class="mt-6">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                            ชื่อ-นามสกุล
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="ชื่อ-นามสกุล" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                            อีเมล
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="อีเมล" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                            เบอร์โทรศัพท์
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="เบอร์โทรศัพท์" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+                            ที่อยู่จัดส่ง
+                        </label>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" placeholder="ที่อยู่จัดส่ง" rows="3" required></textarea>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button class="btn btn-primary w-full" type="submit">
+                            ยืนยันการชำระเงิน
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="form-control">
-                <label class="label">
-                    <span class="label-text">เลขบัตรเครดิต</span>
-                </label>
-                <input type="text" placeholder="เลขบัตรเครดิต" class="input input-bordered">
+        </div>
+    </div>
 
-            </div>
-            <div class="form-control">
-                <label class="label">
-                    <span class="label-text">ที่อยู่จัดส่ง</span>
-                </label>
-                <input type="text" placeholder="ที่อยู่จัดส่ง" class="input input-bordered h-30 w-150" required>
-            </div>
-
-            <div class="form-control">
-                <label class="label" >
-                    <span class="label-text">เบอร์โทรศัพท์</span>
-                    <input type="text" placeholder="เบอร์โทรศัพท์" class="input input-bordered" required>
-                </label>
-            </div>
-
-            <div>
-                <button type="submit" class="btn btn-primary">ชำระเงิน</button>
-            </div>
-<img class="m-3" src="https://cf.shopee.co.th/file/th-11134258-7rasl-m2rm6cx8x4jw07">
+    <footer class="flex justify-center items-center text-2xl max-w-full h-full mt-8 py-4">
+        © 2025 Attapong. All rights Reserved
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Process payment form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentForm = document.getElementById('payment-form');
+            if (paymentForm) {
+                paymentForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Get form data
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const address = document.getElementById('address').value;
+                    
+                    // Get order summary
+                    const orderSummary = JSON.parse(localStorage.getItem('aquashop-order-summary'));
+                    
+                    // Create complete order object
+                    const completeOrder = {
+                        customer: {
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            address: address
+                        },
+                        order: orderSummary,
+                        orderDate: new Date().toISOString()
+                    };
+                    
+                    // Save complete order to localStorage
+                    localStorage.setItem('aquashop-complete-order', JSON.stringify(completeOrder));
+                    
+                    // Clear cart since order is complete
+                    localStorage.removeItem('aquashop-cart');
+                    
+                    // Show success message
+                    alert('การสั่งซื้อของคุณเสร็จสมบูรณ์! หมายเลขคำสั่งซื้อ: ' + Date.now());
+                    
+                    // Redirect to home page or order confirmation page
+                    window.location.href = './index.html';
+                });
+            }
+        });
+    </script>
 </body>
-<footer class="flex justify-center items-center text-2xl  max-w-full h-full">© 2025 Attapong.All right Reserved</footer>
 </html>
