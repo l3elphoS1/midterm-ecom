@@ -220,8 +220,10 @@ function clearCart() {
 
 // Call displayCart when page loads (if on cart page)
 document.addEventListener('DOMContentLoaded', function () {
-  if (path.includes('cart') || path.endsWith('/cart')) {
+  if (window.location.pathname.includes('cart.html') || path.endsWith('/cart')) {
     displayCart();
+  // if (window.location.pathname.includes('cart.html')) {
+  //   displayCart();
   }
 });
 
@@ -229,16 +231,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const totalAmountElement = document.getElementById('totalAmount');
   const total = localStorage.getItem('aquashop-total');
 
-  if (totalAmountElement) {
-    if (total) {
-      totalAmountElement.textContent = `$${parseFloat(total).toFixed(2)}`;
-    } else {
-      totalAmountElement.textContent = '$0.00';
-    }
-  } else {
-    console.error('Element with ID "totalAmount" not found.');
+  if (total && totalAmountElement) {
+    totalAmountElement.textContent = `$${parseFloat(total).toFixed(2)}`;
   }
-});
+  else {
+    totalAmountElement.textContent = '$0.00'
+  }
+}
+);
 
 // document.addEventListener('DOMContentLoaded', function () {
 //   const totalAmountElement = document.getElementById('totalAmount');
