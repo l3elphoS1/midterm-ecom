@@ -220,7 +220,7 @@ function clearCart() {
 
 // Call displayCart when page loads (if on cart page)
 document.addEventListener('DOMContentLoaded', function () {
-  if (window.location.pathname.includes('cart.html')) {
+  if (path.includes('cart') || path.endsWith('/cart')) {
     displayCart();
   }
 });
