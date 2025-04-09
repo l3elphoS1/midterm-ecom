@@ -124,6 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const itemTotal = priceValue * item.quantity;
       totalPrice += itemTotal;
       
+      localStorage.setItem('aquashop-total',(totalPrice+10).toFixed(2));
+
       // Create cart item element
       const cartItemDiv = document.createElement('div');
       cartItemDiv.className = 'bg-white shadow-lg rounded-lg p-4 mb-4 flex flex-col md:flex-row';
@@ -222,3 +224,15 @@ document.addEventListener('DOMContentLoaded', function() {
       displayCart();
     }
   });
+
+  document.addEventListener('DOMContentLoaded',function(){
+    const totalAmountElement = document.getElementById('total-amount');
+    const total = localStorage.getItem('aquashop-total');
+
+    if (total && totalAmountElement){
+      totalAmountElement.textContent = `$${parseFloat(total).toFixed(2)}`;
+    }
+        else{
+      totalAmountElement.textContent = '$0.00'
+    }}
+  );

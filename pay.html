@@ -34,8 +34,15 @@
         
         <!-- Payment Methods -->
         <div class="max-w-md mx-auto">
-            <h2 class="text-2xl font-bold mb-4">วิธีการชำระเงิน</h2>
-            <button class=""
+            <h2 class="text-2xl font-bold mb-4 text-center">วิธีการชำระเงิน</h2>
+            <div class="text-center">
+            <select class="select select-borded max-w-xs text-center">
+                <option disabled selected>เลือกตัวเลือก</option>
+                <option>เงินสด</option>
+                <option>โอนธนาคาร</option>
+                <option>บัตรเครดิต</option>
+            </select>
+        </div>
             <div class="bg-white shadow-lg rounded-lg p-6">
                 <img class="w-full rounded-lg mb-4" src="https://cf.shopee.co.th/file/th-11134258-7rasl-m2rm6cx8x4jw07" alt="Payment Methods">
                 
@@ -64,6 +71,9 @@
                             ที่อยู่จัดส่ง
                         </label>
                         <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" placeholder="ที่อยู่จัดส่ง" rows="3" required></textarea>
+                    </div>
+                    <div>
+                        
                     </div>
                     <div class="flex items-center justify-between">
                         <button class="btn btn-primary w-full" type="submit">
