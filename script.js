@@ -229,14 +229,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const totalAmountElement = document.getElementById('totalAmount');
   const total = localStorage.getItem('aquashop-total');
 
-  if (total && totalAmountElement) {
-    totalAmountElement.textContent = `$${parseFloat(total).toFixed(2)}`;
+  if (totalAmountElement) {
+    if (total) {
+      totalAmountElement.textContent = `$${parseFloat(total).toFixed(2)}`;
+    } else {
+      totalAmountElement.textContent = '$0.00';
+    }
+  } else {
+    console.error('Element with ID "totalAmount" not found.');
   }
-  else {
-    totalAmountElement.textContent = '$0.00'
-  }
-}
-);
+});
 
 // document.addEventListener('DOMContentLoaded', function () {
 //   const totalAmountElement = document.getElementById('totalAmount');
