@@ -36,15 +36,19 @@
         <div class="max-w-md mx-auto">
             <h2 class="text-2xl font-bold mb-4 text-center">วิธีการชำระเงิน</h2>
             <div class="text-center">
-            <select class="select select-borded max-w-xs text-center">
+
+                <p class="text-2xl">ยอดชำระ</p>
+
+                <span id="totalAmount" class="text-2xl font-bold text-green-600 m-4"></span>
+<br>
+            <select class="select select-borded max-w-xs text-center m-4">
                 <option disabled selected>เลือกตัวเลือก</option>
                 <option>เงินสด</option>
                 <option>โอนธนาคาร</option>
                 <option>บัตรเครดิต</option>
             </select>
         </div>
-            <div class="bg-white shadow-lg rounded-lg p-6">
-                <img class="w-full rounded-lg mb-4" src="https://cf.shopee.co.th/file/th-11134258-7rasl-m2rm6cx8x4jw07" alt="Payment Methods">
+           
                 
                 <!-- Payment Form -->
                 <form id="payment-form" class="mt-6">
@@ -73,16 +77,17 @@
                         <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" placeholder="ที่อยู่จัดส่ง" rows="3" required></textarea>
                     </div>
                     <div>
-                        
+
                     </div>
                     <div class="flex items-center justify-between">
-                        <button class="btn btn-primary w-full" type="submit">
+                        <button id="payBtn" class="btn btn-primary w-full" type="submit">
                             ยืนยันการชำระเงิน
                         </button>
                     </div>
                 </form>
             </div>
         </div>
+
     </div>
     <img class="m-3 w-full " src="https://cf.shopee.co.th/file/th-11134258-7rasl-m2rm6cx8x4jw07">
 
@@ -92,48 +97,16 @@
     
     <script src="script.js"></script>
     <script>
-        // Process payment form submission
-        document.addEventListener('DOMContentLoaded', function() {
-            const paymentForm = document.getElementById('payment-form');
-            if (paymentForm) {
-                paymentForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    
-                    // Get form data
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const phone = document.getElementById('phone').value;
-                    const address = document.getElementById('address').value;
-                    
-                    // Get order summary
-                    const orderSummary = JSON.parse(localStorage.getItem('aquashop-order-summary'));
-                    
-                    // Create complete order object
-                    const completeOrder = {
-                        customer: {
-                            name: name,
-                            email: email,
-                            phone: phone,
-                            address: address
-                        },
-                        order: orderSummary,
-                        orderDate: new Date().toISOString()
-                    };
-                    
-                    // Save complete order to localStorage
-                    localStorage.setItem('aquashop-complete-order', JSON.stringify(completeOrder));
-                    
-                    // Clear cart since order is complete
-                    localStorage.removeItem('aquashop-cart');
-                    
-                    // Show success message
-                    alert('การสั่งซื้อของคุณเสร็จสมบูรณ์! หมายเลขคำสั่งซื้อ: ' + Date.now());
-                    
-                    // Redirect to home page or order confirmation page
-                    window.location.href = './index.html';
-                });
-            }
-        });
+         document.addEventListener('DOMContentLoaded', function () {
+    const totalElement = document.getElementById('totalAmount');
+    const total = localStorage.getItem('aquashop-total');
+
+    if (total && totalElement) {
+      totalElement.textContent = `$${total}`;
+    } else {
+      totalElement.textContent = 'No amount found.';
+    }
+  });
     </script>
 </body>
 </html>
