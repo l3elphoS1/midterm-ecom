@@ -100,79 +100,90 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Function to display cart items on cart.html
 function displayCart() {
-  const cartContainer = document.getElementById('cart-items');
-  if (!cartContainer) return; // Exit if not on cart page
+  try {
+    const cartContainer = document.getElementById('cart-items');
+    if (!cartContainer) {
+      console.error('Cart container not found');
+      return;
+    }
 
-  // Get cart from localStorage
-  const cart = JSON.parse(localStorage.getItem('aquashop-cart')) || [];
+    // Get cart from localStorage
+    const cart = JSON.parse(localStorage.getItem('aquashop-cart')) || [];
+    
+    // Clear existing content
+    cartContainer.innerHTML = '';
 
-  // Clear existing content
-  cartContainer.innerHTML = '';
+    if (cart.length === 0) {
+      cartContainer.innerHTML = '<div class="text-center p-8"><h2 class="text-2xl font-bold">Your cart is empty</h2><p class="mt-2">Go to the <a href="product.html" class="text-blue-500">products page</a> to add items to your cart.</p></div>';
+      return;
+    }
 
-  if (cart.length === 0) {
-    cartContainer.innerHTML = '<div class="text-center p-8"><h2 class="text-2xl font-bold">Your cart is empty</h2><p class="mt-2">Go to the <a href="./product.html" class="text-blue-500">products page</a> to add items to your cart.</p></div>';
-    return;
-  }
+    // Calculate total price
+    let totalPrice = 0;
 
-  // Calculate total price
-  let totalPrice = 0;
+    // Create cart items
+    cart.forEach((item, index) => {
+      // Extract numeric price value
+      const priceValue = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+      const itemTotal = priceValue * item.quantity;
+      totalPrice += itemTotal;
 
-  // Create cart items
-  cart.forEach((item, index) => {
-    // Extract numeric price value
-    const priceValue = parseFloat(item.price.replace(/[^0-9.]/g, ''));
-    const itemTotal = priceValue * item.quantity;
-    totalPrice += itemTotal;
+      localStorage.setItem('aquashop-total', (totalPrice + 10).toFixed(2));
 
-    localStorage.setItem('aquashop-total', (totalPrice + 10).toFixed(2));
-
-    // Create cart item element
-    const cartItemDiv = document.createElement('div');
-    cartItemDiv.className = 'bg-white shadow-lg rounded-lg p-4 mb-4 flex flex-col md:flex-row';
-    cartItemDiv.innerHTML = `
-        <div class="md:w-1/4 mb-4 md:mb-0">
-          <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover rounded-lg">
-        </div>
-        <div class="md:w-2/4 md:px-4">
-          <h3 class="text-xl font-semibold">${item.name}</h3>
-          <p class="text-gray-600 mt-2">${item.description}</p>
-          <p class="text-lg font-bold mt-2">${item.price} × ${item.quantity} = $${itemTotal}</p>
-        </div>
-        <div class="md:w-1/4 flex flex-col items-center justify-center">
-          <div class="flex items-center mb-4">
-            <button class="btn btn-sm btn-circle" onclick="updateQuantity(${index}, -1)">-</button>
-            <span class="mx-4">${item.quantity}</span>
-            <button class="btn btn-sm btn-circle" onclick="updateQuantity(${index}, 1)">+</button>
+      // Create cart item element
+      const cartItemDiv = document.createElement('div');
+      cartItemDiv.className = 'bg-white shadow-lg rounded-lg p-4 mb-4 flex flex-col md:flex-row';
+      cartItemDiv.innerHTML = `
+          <div class="md:w-1/4 mb-4 md:mb-0">
+            <img src="${item.image}" alt="${item.name}" class="w-full h-48 object-cover rounded-lg">
           </div>
-          <button class="btn btn-error" onclick="removeFromCart(${index})">Remove</button>
+          <div class="md:w-2/4 md:px-4">
+            <h3 class="text-xl font-semibold">${item.name}</h3>
+            <p class="text-gray-600 mt-2">${item.description}</p>
+            <p class="text-lg font-bold mt-2">${item.price} × ${item.quantity} = $${itemTotal}</p>
+          </div>
+          <div class="md:w-1/4 flex flex-col items-center justify-center">
+            <div class="flex items-center mb-4">
+              <button class="btn btn-sm btn-circle" onclick="updateQuantity(${index}, -1)">-</button>
+              <span class="mx-4">${item.quantity}</span>
+              <button class="btn btn-sm btn-circle" onclick="updateQuantity(${index}, 1)">+</button>
+            </div>
+            <button class="btn btn-error" onclick="removeFromCart(${index})">Remove</button>
+          </div>
+        `;
+
+      cartContainer.appendChild(cartItemDiv);
+    });
+
+    // Add order summary section
+    const summaryDiv = document.createElement('div');
+    summaryDiv.className = 'bg-white shadow-lg rounded-lg p-6 mt-6';
+    summaryDiv.innerHTML = `
+        <h2 class="text-2xl font-bold mb-4">Order Summary</h2>
+        <div class="flex justify-between mb-2">
+          <span>Subtotal:</span>
+          <span>$${totalPrice.toFixed(2)}</span>
         </div>
+        <div class="flex justify-between mb-2">
+          <span>Shipping:</span>
+          <span>$10.00</span>
+        </div>
+        <div class="flex justify-between font-bold text-lg mt-4 pt-4 border-t">
+          <span>Total:</span>
+          <span>$${(totalPrice + 10).toFixed(2)}</span>
+        </div>
+        <button class="btn btn-primary w-full mt-6" onclick="window.location.href='./pay.html'">Proceed to Checkout</button>
+        <button class="btn btn-outline w-full mt-2" onclick="clearCart()">Clear Cart</button>
       `;
 
-    cartContainer.appendChild(cartItemDiv);
-  });
-
-  // Add order summary section
-  const summaryDiv = document.createElement('div');
-  summaryDiv.className = 'bg-white shadow-lg rounded-lg p-6 mt-6';
-  summaryDiv.innerHTML = `
-      <h2 class="text-2xl font-bold mb-4">Order Summary</h2>
-      <div class="flex justify-between mb-2">
-        <span>Subtotal:</span>
-        <span>$${totalPrice.toFixed(2)}</span>
-      </div>
-      <div class="flex justify-between mb-2">
-        <span>Shipping:</span>
-        <span>$10.00</span>
-      </div>
-      <div class="flex justify-between font-bold text-lg mt-4 pt-4 border-t">
-        <span>Total:</span>
-        <span>$${(totalPrice + 10).toFixed(2)}</span>
-      </div>
-      <button class="btn btn-primary w-full mt-6" onclick="window.location.href='./pay.html'">Proceed to Checkout</button>
-      <button class="btn btn-outline w-full mt-2" onclick="clearCart()">Clear Cart</button>
-    `;
-
-  cartContainer.appendChild(summaryDiv);
+    cartContainer.appendChild(summaryDiv);
+  } catch (error) {
+    console.error('Error displaying cart:', error);
+    const cartContainer = document.getElementById('cart-items');
+    if (cartContainer) {
+      cartContainer.innerHTML = '<div class="text-center p-8"><h2 class="text-2xl font-bold">Error loading cart</h2><p class="mt-2">Please try refreshing the page.</p></div>';
+    }
+  }
 }
 
 // Function to update item quantity
@@ -218,14 +229,29 @@ function clearCart() {
   }
 }
 
-// Call displayCart when page loads (if on cart page)
+
 document.addEventListener('DOMContentLoaded', function () {
-  if (window.location.pathname.includes('cart.html') || path.endsWith('/cart')) {
+  console.log('Current path:', window.location.pathname);
+  console.log('Cart contents:', localStorage.getItem('aquashop-cart'));
+  
+  const path = window.location.pathname;
+  if (path.includes('cart.html') || 
+      path.endsWith('/cart') || 
+      path.endsWith('/cart/') ||
+      path === '/cart') {
+    console.log('Attempting to display cart');
     displayCart();
-  // if (window.location.pathname.includes('cart.html')) {
-  //   displayCart();
   }
 });
+
+// Call displayCart when page loads (if on cart page)
+// document.addEventListener('DOMContentLoaded', function () {
+//   if (  window.location.pathname.includes('cart.html') || path.endsWith('/cart')) {
+//     displayCart();
+//   // if (window.location.pathname.includes('cart.html')) {
+//   //   displayCart();
+//   }
+// });
 
 document.addEventListener('DOMContentLoaded', function () {
   const totalAmountElement = document.getElementById('totalAmount');
