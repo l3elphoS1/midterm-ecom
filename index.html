@@ -11,53 +11,112 @@
 
 
 <body>
-    <div class="navbar text-2xl bg-gradient-to-r from-rose-500 to-blue-300 
-    shadow-md">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgfbtCRv3Jy8YURtJgKUbA0O8mH3Y-NRYdig&s" alt="Site Logo" class="w-15 h-15 rounded-lg ">
-        <div class="flex-1">
-            
+  <div class="navbar bg-gradient-to-r from-rose-500 to-blue-300 shadow-md flex-wrap">
+    <div class="navbar-start flex items-center gap-2">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgfbtCRv3Jy8YURtJgKUbA0O8mH3Y-NRYdig&s" alt="Site Logo" class="w-10 h-10 rounded-lg">
+        <a class="btn btn-ghost text-xl normal-case" href="./index.html">Aqua Shop</a>
+    </div>
 
-            <a class="btn btn-ghost text-xl">Aqua Shop</a>
-        </div>
-        <div class="flex-none ">
-            <ul class="menu menu-horizontal px-1 text-xl">
-              <li><a href="./index.html" class="hover:text-white">🏠 Homepage</a></li>
-              <li><a href="./product.html" class="hover:text-white">🛍️ สินค้า</a></li>
-              <li><a href="./cart.html" class="hover:text-white">🛒 ตะกร้า</a></li>
-              <li><a href="./pay.html" class="hover:text-white">💳 ชำระเงิน</a></li>
+    <!-- เมนูมือถือ -->
+    <div class="navbar-end ml-auto md:hidden">
+        <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-square btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </label>
+            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-48 z-50">
+                <li><a href="./index.html">🏠 Homepage</a></li>
+                <li><a href="./product.html">🛍️ สินค้า</a></li>
+                <li><a href="./cart.html">🛒 ตะกร้า</a></li>
+                <li><a href="./pay.html">💳 ชำระเงิน</a></li>
             </ul>
         </div>
     </div>
-    <div class="card-body text-2xl items-center justify-center font-bold p-2">สินค้าขายดี</div>
-<div class="carousel">
-  <div id="item1" class="carousel-item relative w-full rounded-lg flex justify-center">
-    <img 
-      src="https://styles.redditmedia.com/t5_82fddg/styles/image_widget_6wkt1tdgq34c1.jpg?format=pjpg&s=b1e6638404ddedb5a812fe7c1a2dd08efa234077"
-      class="w-11/12 h-auto object-cover rounded-lg" />
-  </div>
-  <div id="item2" class="carousel-item relative w-full rounded-lg flex justify-center">
-    <img
-      src="https://preview.redd.it/genshins-masquerade-of-the-guilty-official-wallpapers-v0-18k4xsusjt2c1.jpg?width=1920&format=pjpg&auto=webp&s=3804faff879e4e118d4dbc3db60b520e0f117ca7"
-      class="w-11/12 h-auto object-cover rounded-lg" />
-  </div>
-  <div id="item3" class="carousel-item relative w-full rounded-lg flex justify-center">
-    <img
-      src="https://r4.wallpaperflare.com/wallpaper/242/657/280/furina-genshin-impact-genshin-impact-video-game-characters-hd-wallpaper-f94676b606b3ba376facaf12ef8681f0.jpg"
-      class="w-11/12 h-auto object-cover rounded-lg" />
-  </div>
-  <div id="item4" class="carousel-item relative w-full rounded-lg flex justify-center">
-    <img
-      src="https://r4.wallpaperflare.com/wallpaper/103/339/597/furina-genshin-impact-genshin-impact-pixiv-hd-wallpaper-d866bdb830905cb820ecf15e3882248a.jpg"
-      class="w-11/12 h-auto object-cover rounded-lg" />
-  </div>
-</div>
-<div class="flex w-full justify-center gap-2 py-2">
-  <a href="#item1" class="btn btn-xs">1</a>
-  <a href="#item2" class="btn btn-xs">2</a>
-  <a href="#item3" class="btn btn-xs">3</a>
-  <a href="#item4" class="btn btn-xs">4</a>
-</div>
 
+    <!-- เมนูใหญ่ -->
+    <div class="hidden md:flex navbar-end">
+        <ul class="menu menu-horizontal px-1 text-base lg:text-lg">
+            <li><a href="./index.html">🏠 Homepage</a></li>
+            <li><a href="./product.html">🛍️ สินค้า</a></li>
+            <li><a href="./cart.html">🛒 ตะกร้า</a></li>
+            <li><a href="./pay.html">💳 ชำระเงิน</a></li>
+        </ul>
+    </div>
+</div>
+    <!-- <div class="card-body text-2xl items-center justify-center font-bold p-2"></div> -->
+<!-- Carousel container -->
+<div class="max-w-7xl mx-auto px-4 my-8">
+  <div class="card-body text-2xl items-center justify-center font-bold p-2">สินค้าขายดี</div>
+  
+  <!-- Fixed height container instead of aspect ratio -->
+  <div class="relative h-[500px] w-full"> 
+    <div class="carousel w-full h-full rounded-xl">
+      <!-- Item 1 -->
+      <div id="item1" class="carousel-item relative w-full">
+        <div class="w-full h-full bg-gray-100">
+          <img 
+            src="https://hoyo.global/wp-content/uploads/2023/06/march-impression-apparel-official-merch-hsr-1788.webp"
+            class="w-full h-full object-cover"
+            alt="Carousel image 1" />
+        </div>
+      </div>
+      
+      <!-- Item 2 -->
+      <div id="item2" class="carousel-item relative w-full">
+        <div class="w-full h-full bg-gray-100">
+          <img
+            src="https://preview.redd.it/genshins-masquerade-of-the-guilty-official-wallpapers-v0-18k4xsusjt2c1.jpg?width=1920&format=pjpg&auto=webp&s=3804faff879e4e118d4dbc3db60b520e0f117ca7"
+            class="w-full h-full object-cover"
+            alt="Carousel image 2" />
+        </div>
+      </div>
+      
+      <!-- Item 3 -->
+      <div id="item3" class="carousel-item relative w-full">
+        <div class="w-full h-full bg-gray-100">
+          <img
+            src="https://r4.wallpaperflare.com/wallpaper/242/657/280/furina-genshin-impact-genshin-impact-video-game-characters-hd-wallpaper-f94676b606b3ba376facaf12ef8681f0.jpg"
+            class="w-full h-full object-cover"
+            alt="Carousel image 3" />
+        </div>
+      </div>
+      
+      <!-- Item 4 -->
+      <div id="item4" class="carousel-item relative w-full">
+        <div class="w-full h-full bg-gray-100">
+          <img
+            src="https://r4.wallpaperflare.com/wallpaper/103/339/597/furina-genshin-impact-genshin-impact-pixiv-hd-wallpaper-d866bdb830905cb820ecf15e3882248a.jpg"
+            class="w-full h-full object-cover"
+            alt="Carousel image 4" />
+        </div>
+      </div>
+      
+      <!-- Item 5 -->
+      <div id="item5" class="carousel-item relative w-full">
+        <div class="w-full h-full bg-gray-100">
+          <img
+            src="https://styles.redditmedia.com/t5_82fddg/styles/image_widget_6wkt1tdgq34c1.jpg?format=pjpg&s=b1e6638404ddedb5a812fe7c1a2dd08efa234077"
+            class="w-full h-full object-cover"
+            alt="Carousel image 5" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel navigation with improved styling -->
+  <div class="flex justify-center w-full py-4 gap-2">
+    <a href="#item1" class="btn btn-xs btn-primary">1</a>
+    <a href="#item2" class="btn btn-xs btn-primary">2</a>
+    <a href="#item3" class="btn btn-xs btn-primary">3</a>
+    <a href="#item4" class="btn btn-xs btn-primary">4</a>
+    <a href="#item5" class="btn btn-xs btn-primary">5</a>
+  </div>
+
+ 
+</div>
     
 
 <h1 class="text-3xl font-bold text-red-300 flex justify-center items-center">Promotion </h1>
