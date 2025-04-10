@@ -52,54 +52,57 @@
   <div class="card-body text-2xl items-center justify-center font-bold p-2">สินค้าขายดี</div>
   
   <!-- Fixed height container instead of aspect ratio -->
-  <div class="relative h-[500px] w-full"> 
-    <div class="carousel w-full h-full rounded-xl">
+
+  
+  <!-- Responsive height container -->
+  <div class="relative h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] w-full"> 
+    <div class="carousel w-full h-full rounded-xl ">
       <!-- Item 1 -->
-      <div id="item1" class="carousel-item relative w-full">
-        <div class="w-full h-full bg-gray-100">
+      <div id="item1" class="carousel-item relative w-full shadow-md">
+        <div class="w-full h-full  ">
           <img 
             src="https://hoyo.global/wp-content/uploads/2023/06/march-impression-apparel-official-merch-hsr-1788.webp"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-contain md:object-cover"
             alt="Carousel image 1" />
         </div>
       </div>
       
       <!-- Item 2 -->
       <div id="item2" class="carousel-item relative w-full">
-        <div class="w-full h-full bg-gray-100">
+        <div class="w-full h-full ">
           <img
             src="https://preview.redd.it/genshins-masquerade-of-the-guilty-official-wallpapers-v0-18k4xsusjt2c1.jpg?width=1920&format=pjpg&auto=webp&s=3804faff879e4e118d4dbc3db60b520e0f117ca7"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-contain md:object-cover"
             alt="Carousel image 2" />
         </div>
       </div>
       
       <!-- Item 3 -->
       <div id="item3" class="carousel-item relative w-full">
-        <div class="w-full h-full bg-gray-100">
+        <div class="w-full h-full ">
           <img
             src="https://r4.wallpaperflare.com/wallpaper/242/657/280/furina-genshin-impact-genshin-impact-video-game-characters-hd-wallpaper-f94676b606b3ba376facaf12ef8681f0.jpg"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-contain md:object-cover"
             alt="Carousel image 3" />
         </div>
       </div>
       
       <!-- Item 4 -->
       <div id="item4" class="carousel-item relative w-full">
-        <div class="w-full h-full bg-gray-100">
+        <div class="w-full h-full ">
           <img
             src="https://r4.wallpaperflare.com/wallpaper/103/339/597/furina-genshin-impact-genshin-impact-pixiv-hd-wallpaper-d866bdb830905cb820ecf15e3882248a.jpg"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-contain md:object-cover"
             alt="Carousel image 4" />
         </div>
       </div>
       
       <!-- Item 5 -->
       <div id="item5" class="carousel-item relative w-full">
-        <div class="w-full h-full bg-gray-100">
+        <div class="w-full h-full ">
           <img
             src="https://styles.redditmedia.com/t5_82fddg/styles/image_widget_6wkt1tdgq34c1.jpg?format=pjpg&s=b1e6638404ddedb5a812fe7c1a2dd08efa234077"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-contain md:object-cover"
             alt="Carousel image 5" />
         </div>
       </div>
@@ -114,8 +117,6 @@
     <a href="#item4" class="btn btn-xs btn-primary">4</a>
     <a href="#item5" class="btn btn-xs btn-primary">5</a>
   </div>
-
- 
 </div>
     
 
@@ -153,5 +154,6 @@
 <script src="./script.js"></script>    
 </script>
 </body>
-<footer class="flex justify-center items-center text-2xl  max-w-full h-full">© 2025 Attapong.All right Reserved</footer>
+<footer class="flex justify-center items-center text-2xl  max-w-full w-full text-center py-6 px-4 h-full">
+  <p class="text-lg md:text-2xl"> © 2025 Attapong.All right Reserved</p></footer>
 </html>
